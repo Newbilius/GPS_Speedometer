@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Simple GPS Speedometer</string>
+    <string name="noPermissions_title">Не хватает прав</string>
+    <string name="noPermissions_text">Для определения скорости по GPS приложению необходимо разрешить доступ к данным GPS</string>
+    <string name="noPermissions_turnOn_button">Разрешить</string>
+    <string name="noPermissions_exit_button">Выйти</string>
+
+    <string name="noGPS_title">GPS выключен</string>
+    <string name="noGPS_text">Для определения скорости по GPS необходимо включить GPS</string>
+    <string name="noGPS_turnOn_button">Включить</string>
+    <string name="noGPS_exit_button">Выйти</string>
+    <string name="satelliteCount">Спутники: %d шт</string>
+    <string name="gps_turnedOff">GPS выключен</string>
+    <string name="speedFormat_kmh">%d км/ч</string>
+    <string name="speedFormat_mph">%d миль/ч</string>
+</resources>

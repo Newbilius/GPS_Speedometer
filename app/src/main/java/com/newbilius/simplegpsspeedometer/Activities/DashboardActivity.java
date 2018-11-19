@@ -31,6 +31,7 @@ import com.newbilius.simplegpsspeedometer.Utilities.SharedPreferencesStore;
 import com.newbilius.simplegpsspeedometer.databinding.ActivityDashboardBinding;
 
 //todo readme на гитхаб
+//todo крутой шрифт
 
 public class DashboardActivity extends AppCompatActivity implements IActivityProvider {
 

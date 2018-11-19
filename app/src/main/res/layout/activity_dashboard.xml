@@ -18,31 +18,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="12dp">
+            android:padding="@dimen/screenPadding">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@{model.speedText}"
-                android:textSize="60sp"
+                android:textSize="@dimen/speedTextSize"
                 android:visibility="@{model.showSpeed}"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="60 КМ/Ч" />
+                tools:text="190 КМ/Ч" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@{model.infoText}"
-                android:textSize="30sp"
+                android:textSize="@dimen/infoTextSize"
                 android:visibility="@{model.showInfoText}"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 tools:text="Спутники: 5 шт" />
 
             <ProgressBar

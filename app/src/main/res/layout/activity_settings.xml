@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="12dp">
+            android:padding="@dimen/screenPadding">
 
             <RadioGroup
                 android:layout_width="match_parent"
@@ -30,17 +30,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/speedRadioButtonGroupTitle"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/configGroupTitleSize" />
 
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="@={model.instantSpeedCounterSelected}"
+                    android:textSize="@dimen/textSize"
                     android:text="@string/instantSpeedRadioButtonTitle" />
 
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/textSize"
                     android:checked="@={model.medianSpeedCounterSelected}"
                     android:text="@string/medianSpeedRadioButtonTitle" />
             </RadioGroup>
@@ -56,18 +58,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/unitsRadioButtonGroupTitle"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/configGroupTitleSize" />
 
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="@={model.speedInKmH}"
+                    android:textSize="@dimen/textSize"
                     android:text="@string/kmhRadioButtonTitle" />
 
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="@={model.speedInMpH}"
+                    android:textSize="@dimen/textSize"
                     android:text="@string/mphRadioButtonTitle" />
             </RadioGroup>
 

@@ -4,12 +4,13 @@ import android.content.Context;
 import android.databinding.ObservableBoolean;
 
 import com.newbilius.simplegpsspeedometer.ApplicationState.AppSettings;
+import com.newbilius.simplegpsspeedometer.Utilities.IActivityProvider;
 import com.newbilius.simplegpsspeedometer.Utilities.NavigationHelpers;
 import com.newbilius.simplegpsspeedometer.Utilities.SpeedCounterMode;
 import com.newbilius.simplegpsspeedometer.Utilities.SpeedFormat;
 
 public class SettingsViewModel {
-    private final Context context;
+    private final IActivityProvider activityProvider;
     private final AppSettings settings;
 
     public ObservableBoolean speedInKmH = new ObservableBoolean();
@@ -18,8 +19,8 @@ public class SettingsViewModel {
     public ObservableBoolean instantSpeedCounterSelected = new ObservableBoolean();
     public ObservableBoolean medianSpeedCounterSelected = new ObservableBoolean();
 
-    public SettingsViewModel(Context context, AppSettings settings) {
-        this.context = context;
+    public SettingsViewModel(IActivityProvider activityProvider, AppSettings settings) {
+        this.activityProvider = activityProvider;
         this.settings = settings;
 
         setSpeedFormat(settings.getSpeedFormat());
@@ -41,11 +42,11 @@ public class SettingsViewModel {
     }
 
     public void goToOtherApplications() {
-        NavigationHelpers.goToUrl(context, "market://search?q=pub:%D0%94%D0%BC%D0%B8%D1%82%D1%80%D0%B8%D0%B9+%D0%9C%D0%BE%D0%B8%D1%81%D0%B5%D0%B5%D0%B2");
+        NavigationHelpers.goToUrl(activityProvider.getActivity(), "market://search?q=pub:%D0%94%D0%BC%D0%B8%D1%82%D1%80%D0%B8%D0%B9+%D0%9C%D0%BE%D0%B8%D1%81%D0%B5%D0%B5%D0%B2");
     }
 
     public void writeReview() {
-        NavigationHelpers.rateApplicationInGooglePlay(context);
+        NavigationHelpers.rateApplicationInGooglePlay(activityProvider.getActivity());
     }
 
     private void setSpeedCounterMode(SpeedCounterMode speedCounterMode) {

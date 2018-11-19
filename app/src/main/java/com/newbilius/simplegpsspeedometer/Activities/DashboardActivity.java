@@ -1,6 +1,7 @@
 package com.newbilius.simplegpsspeedometer.Activities;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -25,20 +26,21 @@ import com.newbilius.simplegpsspeedometer.GPS.IGPSListenerCallback;
 import com.newbilius.simplegpsspeedometer.GPS.IGPSSatelliteCounterCallback;
 import com.newbilius.simplegpsspeedometer.ApplicationState.MainApplication;
 import com.newbilius.simplegpsspeedometer.R;
+import com.newbilius.simplegpsspeedometer.Utilities.IActivityProvider;
 import com.newbilius.simplegpsspeedometer.Utilities.SharedPreferencesStore;
 import com.newbilius.simplegpsspeedometer.databinding.ActivityDashboardBinding;
 
+//todo прибраться в моели DashbBoard
 //todo сбалансировать, что куда запихнуть (что в какую модель, что в активити)
 //todo сплэш (?)
 //todo разделить модель и вьюмодель ?
 //todo IoC контейнер (?)
-//todo реклама (хе-хе)
 
 //todo иконка
 //todo скриншоты
 //todo readme
 
-public class DashboardActivity extends AppCompatActivity {
+public class DashboardActivity extends AppCompatActivity implements IActivityProvider {
 
     private LocationManager locationManager;
 
@@ -188,5 +190,10 @@ public class DashboardActivity extends AppCompatActivity {
                     }
                 })
                 .show();
+    }
+
+    @Override
+    public Activity getActivity() {
+        return this;
     }
 }

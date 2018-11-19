@@ -9,13 +9,13 @@ import com.newbilius.simplegpsspeedometer.ApplicationState.AppSettings;
 import com.newbilius.simplegpsspeedometer.GPSSpeedCounters.IGPSSpeedCounter;
 import com.newbilius.simplegpsspeedometer.GPSSpeedCounters.InstantGPSSpeedCounter;
 import com.newbilius.simplegpsspeedometer.GPSSpeedCounters.MedianGPSSpeedCounter;
+import com.newbilius.simplegpsspeedometer.Utilities.IActivityProvider;
 import com.newbilius.simplegpsspeedometer.Utilities.SpeedCounterMode;
 import com.newbilius.simplegpsspeedometer.Utilities.SpeedFormat;
 
 public class DashboardViewModel {
-
-    private final Context context;
     private final AppSettings settings;
+    private final IActivityProvider activityProvider;
     public ObservableField<String> speedText = new ObservableField<>();
     public ObservableBoolean showSpeed = new ObservableBoolean();
     public ObservableField<String> infoText = new ObservableField<>();
@@ -28,11 +28,11 @@ public class DashboardViewModel {
     private InstantGPSSpeedCounter instantGPSSpeedCounter;
     private MedianGPSSpeedCounter medianGPSSpeedCounter;
 
-    public DashboardViewModel(Context context,
+    public DashboardViewModel(IActivityProvider activityProvider,
                               AppSettings settings) {
-        this.context = context;
+        this.activityProvider = activityProvider;
         this.settings = settings;
-        setAndShowInfoText(context.getString(R.string.satelliteSearch));
+        setAndShowInfoText(activityProvider.getActivity().getString(R.string.satelliteSearch));
         instantGPSSpeedCounter = new InstantGPSSpeedCounter();
         medianGPSSpeedCounter = new MedianGPSSpeedCounter(4);
         reloadData();
@@ -58,12 +58,12 @@ public class DashboardViewModel {
     public void setSatelliteCount(int count) {
         if (showInfoText.get()) {
             showLoader.set(true);
-            infoText.set(String.format(context.getString(R.string.satelliteCount), count));
+            infoText.set(String.format(activityProvider.getActivity().getString(R.string.satelliteCount), count));
         }
     }
 
     public void setGPSTurnedOff() {
-        setAndShowInfoText(context.getString(R.string.gps_turnedOff));
+        setAndShowInfoText(activityProvider.getActivity().getString(R.string.gps_turnedOff));
     }
 
     public void setAndShowSpeed(Location location) {
@@ -100,11 +100,11 @@ public class DashboardViewModel {
 
         switch (speedFormat) {
             case kmh:
-                speedText.set(String.format(context.getString(R.string.speedFormat_kmh), Math.round(speed * 3.6)));
+                speedText.set(String.format(activityProvider.getActivity().getString(R.string.speedFormat_kmh), Math.round(speed * 3.6)));
                 break;
             case mph:
                 int speedInMph = (int) Math.round(speed * 2.23694);
-                speedText.set(context.getResources().getQuantityString(R.plurals.speedFormat_mph_plurals,
+                speedText.set(activityProvider.getActivity().getResources().getQuantityString(R.plurals.speedFormat_mph_plurals,
                         speedInMph,
                         speedInMph
                         ));

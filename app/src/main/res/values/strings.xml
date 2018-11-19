@@ -1,27 +1,35 @@
 <resources>
     <string name="app_name">Simple GPS Speedometer</string>
-    <string name="noPermissions_title">Не хватает прав</string>
-    <string name="noPermissions_text">Для определения скорости по GPS приложению необходимо разрешить доступ к данным GPS</string>
-    <string name="noPermissions_turnOn_button">Разрешить</string>
-    <string name="noPermissions_exit_button">Выйти</string>
+    <string name="noPermissions_title">No permissions</string>
+    <string name="noPermissions_text">The application needs access to GPS to determine the speed of GPS</string>
+    <string name="noPermissions_turnOn_button">Give permissions</string>
+    <string name="noPermissions_exit_button">Quit</string>
 
-    <string name="noGPS_title">GPS выключен</string>
-    <string name="noGPS_text">Для определения скорости по GPS необходимо включить GPS</string>
-    <string name="noGPS_turnOn_button">Включить</string>
-    <string name="noGPS_exit_button">Выйти</string>
-    <string name="satelliteCount">Настройка GPS...\nСпутники: %d шт</string>
-    <string name="satelliteSearch">Настройка GPS..."</string>
-    <string name="gps_turnedOff">GPS выключен</string>
-    <string name="speedFormat_kmh">%d км/ч</string>
-    <string name="speedFormat_mph">%d миль/ч</string>
-    <string name="menuAboutButtonTitle">Настройки и информация о программе</string>
-    <string name="medianSpeedRadioButtonTitle">Усреднённая за последние секунды</string>
-    <string name="instantSpeedRadioButtonTitle">Мгновенная</string>
-    <string name="speedRadioButtonGroupTitle">Скорость</string>
-    <string name="unitsRadioButtonGroupTitle">Единицы измерения</string>
-    <string name="kmhRadioButtonTitle">КМ/Ч</string>
-    <string name="mphRadioButtonTitle">Миль/ч</string>
-    <string name="otherAppsButtonTitle">Другие приложения автора</string>
-    <string name="writeFeedbackButtonTitle">Написать отзыв"</string>
-    <string name="settingsScreenTitle">Настройки</string>
+    <string name="noGPS_title">GPS turned off</string>
+    <string name="noGPS_text">Turned on GPS is required to determine the speed by GPS</string>
+    <string name="noGPS_turnOn_button">Turn on</string>
+    <string name="noGPS_exit_button">Quit</string>
+    <string name="satelliteCount">Setting GPS GPS...\Satellite: %d</string>
+    <string name="satelliteSearch">Setting GPS..."</string>
+    <string name="gps_turnedOff">GPS turned off</string>
+    <string name="speedFormat_kmh">%d km/h</string>
+    <string name="menuAboutButtonTitle">Settings and information about application</string>
+    <string name="medianSpeedRadioButtonTitle">Median speed by last seconds</string>
+    <string name="instantSpeedRadioButtonTitle">Instant speed</string>
+    <string name="speedRadioButtonGroupTitle">Speed</string>
+    <string name="unitsRadioButtonGroupTitle">Units</string>
+    <string name="kmhRadioButtonTitle">Km/h</string>
+    <string name="mphRadioButtonTitle">Mph</string>
+    <string name="otherAppsButtonTitle">Other author applications</string>
+    <string name="writeFeedbackButtonTitle">Write feedback</string>
+    <string name="settingsScreenTitle">Settings</string>
+
+    <plurals name="speedFormat_mph_plurals">
+        <item quantity="zero">0 mph</item>
+        <item quantity="one">%1$d mph</item>
+        <item quantity="two">%1$d mph</item>
+        <item quantity="few">%1$d mph</item>
+        <item quantity="many">%1$d mph</item>
+        <item quantity="other">%1$d mph</item>
+    </plurals>
 </resources>

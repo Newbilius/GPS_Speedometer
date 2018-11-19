@@ -96,12 +96,17 @@ public class DashboardActivityViewModel {
     private void setSpeed(float value) {
         speed = value;
 
+
         switch (speedFormat) {
             case kmh:
                 speedText.set(String.format(context.getString(R.string.speedFormat_kmh), Math.round(speed * 3.6)));
                 break;
             case mph:
-                speedText.set(String.format(context.getString(R.string.speedFormat_mph), Math.round(speed * 2.23694)));
+                int speedInMph = (int) Math.round(speed * 2.23694);
+                speedText.set(context.getResources().getQuantityString(R.plurals.speedFormat_mph_plurals,
+                        speedInMph,
+                        speedInMph
+                        ));
                 break;
         }
     }

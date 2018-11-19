@@ -32,11 +32,8 @@ import com.newbilius.simplegpsspeedometer.databinding.ActivityDashboardBinding;
 //todo сплэш (?)
 //todo разделить модель и вьюмодель ?
 //todo IoC контейнер (?)
-//todo ProgressBar
 //todo вытащить общие моменты вёрстки в константы ресурсов
 
-//после подготовки всего остального
-//todo локализация на английском
 //todo иконка
 //todo скриншоты
 //todo readme

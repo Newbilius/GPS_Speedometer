@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">GPS-спидометр</string>
+    <string name="noPermissions_title">Не хватает прав</string>
+    <string name="noPermissions_text">Для определения скорости по GPS приложению необходимо разрешить доступ к данным GPS</string>
+    <string name="noPermissions_turnOn_button">Разрешить</string>
+    <string name="noPermissions_exit_button">Выйти</string>
+
+    <string name="noGPS_title">GPS выключен</string>
+    <string name="noGPS_text">Для определения скорости по GPS необходимо включить GPS</string>
+    <string name="noGPS_turnOn_button">Включить</string>
+    <string name="noGPS_exit_button">Выйти</string>
+    <string name="satelliteCount">Настройка GPS...\nСпутники: %d шт</string>
+    <string name="satelliteSearch">Настройка GPS..."</string>
+    <string name="gps_turnedOff">GPS выключен</string>
+    <string name="speedFormat_kmh">%d км/ч</string>
+    <string name="menuAboutButtonTitle">Настройки и информация о программе</string>
+    <string name="medianSpeedRadioButtonTitle">Усреднённая за последние секунды</string>
+    <string name="instantSpeedRadioButtonTitle">Мгновенная</string>
+    <string name="speedRadioButtonGroupTitle">Скорость</string>
+    <string name="unitsRadioButtonGroupTitle">Единицы измерения</string>
+    <string name="kmhRadioButtonTitle">Км/ч</string>
+    <string name="mphRadioButtonTitle">Миль/ч</string>
+    <string name="otherAppsButtonTitle">Другие приложения автора</string>
+    <string name="writeFeedbackButtonTitle">Написать отзыв</string>
+    <string name="settingsScreenTitle">Настройки</string>
+
+    <plurals name="speedFormat_mph_plurals">
+        <item quantity="one">%1$d миля/ч</item>
+        <item quantity="few">%1$d мили/ч</item>
+        <item quantity="many">%1$d миль/ч</item>
+        <item quantity="other">%1$d миль/ч</item>
+    </plurals>
+</resources>

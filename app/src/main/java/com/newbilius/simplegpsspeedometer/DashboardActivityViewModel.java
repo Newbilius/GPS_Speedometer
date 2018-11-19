@@ -26,8 +26,8 @@ public class DashboardActivityViewModel {
     private InstantGPSSpeedCounter instantGPSSpeedCounter;
     private MedianGPSSpeedCounter medianGPSSpeedCounter;
 
-    DashboardActivityViewModel(Context context,
-                               AppSettings settings) {
+    public DashboardActivityViewModel(Context context,
+                                      AppSettings settings) {
         this.context = context;
         this.settings = settings;
         setAndShowInfoText(context.getString(R.string.satelliteSearch));
@@ -36,7 +36,7 @@ public class DashboardActivityViewModel {
         reloadData();
     }
 
-    void reloadData() {
+    public void reloadData() {
         setSpeedFormat(settings.getSpeedFormat());
         setSpeedCounterMode(settings.getSpeedCounterMode());
     }
@@ -52,16 +52,16 @@ public class DashboardActivityViewModel {
         }
     }
 
-    void setSatelliteCount(int count) {
+    public void setSatelliteCount(int count) {
         if (showInfoText.get())
             infoText.set(String.format(context.getString(R.string.satelliteCount), count));
     }
 
-    void setGPSTurnedOff() {
+    public void setGPSTurnedOff() {
         setAndShowInfoText(context.getString(R.string.gps_turnedOff));
     }
 
-    void setAndShowSpeed(Location location) {
+    public void setAndShowSpeed(Location location) {
         if (gpsSpeedCounter != null)
             setSpeed(gpsSpeedCounter.getSpeed(location));
         showInfoText.set(false);

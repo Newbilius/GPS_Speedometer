@@ -14,19 +14,19 @@ public class AppSettings {
         this.sharedPreferencesStore = sharedPreferencesStore;
     }
 
-    public void saveSpeedFormat(SpeedFormat speedFormat) {
+    void saveSpeedFormat(SpeedFormat speedFormat) {
         sharedPreferencesStore.setInt(SPEED_FORMAT_KEY, speedFormat.ordinal());
     }
 
-    public SpeedFormat getSpeedFormat() {
+    SpeedFormat getSpeedFormat() {
         return SpeedFormat.values()[sharedPreferencesStore.getInt(SPEED_FORMAT_KEY, SpeedFormat.kmh.ordinal())];
     }
 
-    public void saveCounterMode(SpeedCounterMode speedFormat) {
+    void saveCounterMode(SpeedCounterMode speedFormat) {
         sharedPreferencesStore.setInt(SPEED_COUNTER_MODE_KEY, speedFormat.ordinal());
     }
 
-    public SpeedCounterMode getSpeedCounterMode() {
+    SpeedCounterMode getSpeedCounterMode() {
         return SpeedCounterMode.values()[sharedPreferencesStore.getInt(SPEED_COUNTER_MODE_KEY, SpeedCounterMode.Median.ordinal())];
     }
 }

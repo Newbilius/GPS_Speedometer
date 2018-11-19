@@ -17,7 +17,7 @@ public class SettingsActivityViewModel {
     public ObservableBoolean instantSpeedCounterSelected = new ObservableBoolean();
     public ObservableBoolean medianSpeedCounterSelected = new ObservableBoolean();
 
-    SettingsActivityViewModel(Context context, AppSettings settings) {
+    public SettingsActivityViewModel(Context context, AppSettings settings) {
         this.context = context;
         this.settings = settings;
 

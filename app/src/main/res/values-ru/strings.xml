@@ -11,7 +11,6 @@
     <string name="noGPS_exit_button">Выйти</string>
     <string name="satelliteCount">Настройка GPS...\nСпутники: %d шт</string>
     <string name="satelliteSearch">Настройка GPS..."</string>
-    <string name="gps_turnedOff">GPS выключен</string>
     <string name="speedFormat_kmh">%d км/ч</string>
     <string name="menuAboutButtonTitle">Настройки и информация о программе</string>
     <string name="medianSpeedRadioButtonTitle">Усреднённая за последние секунды</string>

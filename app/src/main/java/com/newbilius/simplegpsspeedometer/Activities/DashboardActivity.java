@@ -30,8 +30,6 @@ import com.newbilius.simplegpsspeedometer.Utilities.IActivityProvider;
 import com.newbilius.simplegpsspeedometer.Utilities.SharedPreferencesStore;
 import com.newbilius.simplegpsspeedometer.databinding.ActivityDashboardBinding;
 
-//todo прибраться в моели DashbBoard
-//todo сбалансировать, что куда запихнуть (что в какую модель, что в активити)
 //todo сплэш (?)
 //todo разделить модель и вьюмодель ?
 //todo IoC контейнер (?)

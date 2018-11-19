@@ -35,8 +35,8 @@ public class DashboardViewModel {
         setAndShowInfoText(activityProvider.getActivity().getString(R.string.satelliteSearch));
         instantGPSSpeedCounter = new InstantGPSSpeedCounter();
         medianGPSSpeedCounter = new MedianGPSSpeedCounter(4);
-        reloadData();
         showLoader.set(true);
+        reloadData();
     }
 
     public void reloadData() {
@@ -63,7 +63,8 @@ public class DashboardViewModel {
     }
 
     public void setGPSTurnedOff() {
-        setAndShowInfoText(activityProvider.getActivity().getString(R.string.gps_turnedOff));
+        showSpeed.set(false);
+        showInfoText.set(true);
     }
 
     public void setAndShowSpeed(Location location) {
@@ -107,7 +108,7 @@ public class DashboardViewModel {
                 speedText.set(activityProvider.getActivity().getResources().getQuantityString(R.plurals.speedFormat_mph_plurals,
                         speedInMph,
                         speedInMph
-                        ));
+                ));
                 break;
         }
     }

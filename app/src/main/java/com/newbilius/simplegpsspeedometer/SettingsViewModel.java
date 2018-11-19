@@ -26,18 +26,26 @@ public class SettingsViewModel {
         setSpeedCounterMode(settings.getSpeedCounterMode());
     }
 
-    public void onSpeedFormatChanged() {
-        if (speedInKmH.get())
-            setSpeedFormat(SpeedFormat.kmh);
-        if (speedInMpH.get())
-            setSpeedFormat(SpeedFormat.mph);
+    public void onSpeedFormatChanged(int id) {
+        switch (id) {
+            case R.id.MPHradioButton:
+                setSpeedFormat(SpeedFormat.mph);
+                break;
+            case R.id.KMHradioButton:
+                setSpeedFormat(SpeedFormat.kmh);
+                break;
+        }
     }
 
-    public void speedCounterChanged() {
-        if (instantSpeedCounterSelected.get())
-            setSpeedCounterMode(SpeedCounterMode.Instant);
-        if (medianSpeedCounterSelected.get())
-            setSpeedCounterMode(SpeedCounterMode.Median);
+    public void speedCounterChanged(int id) {
+        switch (id) {
+            case R.id.instantSpeedRadioButton:
+                setSpeedCounterMode(SpeedCounterMode.Instant);
+                break;
+            case R.id.medianSpeedRadioButton:
+                setSpeedCounterMode(SpeedCounterMode.Median);
+                break;
+        }
     }
 
     public void goToOtherApplications() {

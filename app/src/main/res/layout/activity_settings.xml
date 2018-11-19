@@ -23,7 +23,7 @@
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onCheckedChanged="@{(radioGroup,id) -> model.speedCounterChanged()}"
+                android:onCheckedChanged="@{(radioGroup,id) -> model.speedCounterChanged(id)}"
                 android:orientation="vertical">
 
                 <TextView
@@ -33,24 +33,26 @@
                     android:textSize="@dimen/configGroupTitleSize" />
 
                 <RadioButton
+                    android:id="@+id/instantSpeedRadioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:checked="@={model.instantSpeedCounterSelected}"
-                    android:textSize="@dimen/textSize"
-                    android:text="@string/instantSpeedRadioButtonTitle" />
+                    android:checked="@{model.instantSpeedCounterSelected}"
+                    android:text="@string/instantSpeedRadioButtonTitle"
+                    android:textSize="@dimen/textSize" />
 
                 <RadioButton
+                    android:id="@+id/medianSpeedRadioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/textSize"
-                    android:checked="@={model.medianSpeedCounterSelected}"
-                    android:text="@string/medianSpeedRadioButtonTitle" />
+                    android:checked="@{model.medianSpeedCounterSelected}"
+                    android:text="@string/medianSpeedRadioButtonTitle"
+                    android:textSize="@dimen/textSize" />
             </RadioGroup>
 
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onCheckedChanged="@{(radioGroup,id) -> model.onSpeedFormatChanged()}"
+                android:onCheckedChanged="@{(radioGroup,id) -> model.onSpeedFormatChanged(id)}"
                 android:orientation="vertical"
                 android:paddingTop="10dp">
 
@@ -61,18 +63,20 @@
                     android:textSize="@dimen/configGroupTitleSize" />
 
                 <RadioButton
+                    android:id="@+id/KMHradioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:checked="@={model.speedInKmH}"
-                    android:textSize="@dimen/textSize"
-                    android:text="@string/kmhRadioButtonTitle" />
+                    android:checked="@{model.speedInKmH}"
+                    android:text="@string/kmhRadioButtonTitle"
+                    android:textSize="@dimen/textSize" />
 
                 <RadioButton
+                    android:id="@+id/MPHradioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:checked="@={model.speedInMpH}"
-                    android:textSize="@dimen/textSize"
-                    android:text="@string/mphRadioButtonTitle" />
+                    android:checked="@{model.speedInMpH}"
+                    android:text="@string/mphRadioButtonTitle"
+                    android:textSize="@dimen/textSize" />
             </RadioGroup>
 
             <LinearLayout
@@ -108,7 +112,7 @@
                 android:layout_height="wrap_content"
                 android:onClick="@{(view) -> model.writeReview()}"
                 android:text="@string/writeFeedbackButtonTitle" />
-				
+
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -130,7 +134,7 @@
                     android:textSize="@dimen/textSize"
                     android:textStyle="bold" />
             </LinearLayout>
-			
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

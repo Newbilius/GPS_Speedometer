@@ -27,6 +27,7 @@ public class DashboardViewModel {
     private IGPSSpeedCounter gpsSpeedCounter;
     private InstantGPSSpeedCounter instantGPSSpeedCounter;
     private MedianGPSSpeedCounter medianGPSSpeedCounter;
+    private boolean gpsActivated;
 
     public DashboardViewModel(IActivityProvider activityProvider,
                               AppSettings settings) {
@@ -35,8 +36,12 @@ public class DashboardViewModel {
         setAndShowInfoText(activityProvider.getActivity().getString(R.string.satelliteSearch));
         instantGPSSpeedCounter = new InstantGPSSpeedCounter();
         medianGPSSpeedCounter = new MedianGPSSpeedCounter(4);
-        showLoader.set(true);
+        showLoader.set(false);
         reloadData();
+    }
+
+    public boolean isGPSActivated() {
+        return gpsActivated;
     }
 
     public void reloadData() {
@@ -59,12 +64,16 @@ public class DashboardViewModel {
         if (showInfoText.get()) {
             showLoader.set(true);
             infoText.set(String.format(activityProvider.getActivity().getString(R.string.satelliteCount), count));
+            gpsActivated = true;
         }
     }
 
     public void setGPSTurnedOff() {
         showSpeed.set(false);
         showInfoText.set(true);
+        gpsActivated = false;
+        showLoader.set(false);
+        setAndShowInfoText(activityProvider.getActivity().getString(R.string.satelliteSearch));
     }
 
     public void setAndShowSpeed(Location location) {
@@ -73,6 +82,7 @@ public class DashboardViewModel {
         showInfoText.set(false);
         showLoader.set(false);
         showSpeed.set(true);
+        gpsActivated = true;
     }
 
     private void setCounter(IGPSSpeedCounter gpsSpeedCounter) {

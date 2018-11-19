@@ -30,8 +30,7 @@ import com.newbilius.simplegpsspeedometer.Utilities.IActivityProvider;
 import com.newbilius.simplegpsspeedometer.Utilities.SharedPreferencesStore;
 import com.newbilius.simplegpsspeedometer.databinding.ActivityDashboardBinding;
 
-//todo сплэш (?)
-//todo разделить модель и вьюмодель ?
+//todo сплэш
 //todo IoC контейнер (?)
 
 //todo иконка
@@ -102,7 +101,8 @@ public class DashboardActivity extends AppCompatActivity implements IActivityPro
                 .setOnCancelListener(new DialogInterface.OnCancelListener() {
                     @Override
                     public void onCancel(DialogInterface dialog) {
-                        finish();
+                        if (!model.isGPSActivated())
+                            finish();
                     }
                 })
                 .show();
@@ -184,6 +184,12 @@ public class DashboardActivity extends AppCompatActivity implements IActivityPro
                 .setNegativeButton(R.string.noPermissions_exit_button, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                })
+                .setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialog) {
                         finish();
                     }
                 })

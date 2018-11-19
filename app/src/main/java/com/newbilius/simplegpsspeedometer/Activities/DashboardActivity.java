@@ -32,10 +32,11 @@ import com.newbilius.simplegpsspeedometer.databinding.ActivityDashboardBinding;
 
 //todo сплэш
 //todo IoC контейнер (?)
+//todo разбивка модели на ViewModel + Model ?
 
 //todo иконка
 //todo скриншоты
-//todo readme
+//todo readme на гитхаб
 
 public class DashboardActivity extends AppCompatActivity implements IActivityProvider {
 

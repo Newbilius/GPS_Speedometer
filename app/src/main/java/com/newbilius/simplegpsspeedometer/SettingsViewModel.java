@@ -1,6 +1,5 @@
 package com.newbilius.simplegpsspeedometer;
 
-import android.content.Context;
 import android.databinding.ObservableBoolean;
 
 import com.newbilius.simplegpsspeedometer.ApplicationState.AppSettings;

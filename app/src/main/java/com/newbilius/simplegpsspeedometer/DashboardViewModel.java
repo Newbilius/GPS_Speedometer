@@ -1,6 +1,5 @@
 package com.newbilius.simplegpsspeedometer;
 
-import android.content.Context;
 import android.databinding.ObservableBoolean;
 import android.databinding.ObservableField;
 import android.location.Location;

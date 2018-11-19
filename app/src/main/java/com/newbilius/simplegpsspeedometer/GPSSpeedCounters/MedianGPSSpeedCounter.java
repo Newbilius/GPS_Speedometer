@@ -28,11 +28,11 @@ public class MedianGPSSpeedCounter implements IGPSSpeedCounter {
 
     private float calculateMedianSpeed(float[] speed) {
         Arrays.sort(speed);
-        double median;
+        float median;
         if (speed.length % 2 == 0)
-            median = ((double) speed[speed.length / 2] + (double) speed[speed.length / 2 - 1]) / 2;
+            median = (speed[speed.length / 2] + speed[speed.length / 2 - 1]) / 2;
         else
-            median = (double) speed[speed.length / 2];
-        return Math.round(median);
+            median = speed[speed.length / 2];
+        return median;
     }
 }

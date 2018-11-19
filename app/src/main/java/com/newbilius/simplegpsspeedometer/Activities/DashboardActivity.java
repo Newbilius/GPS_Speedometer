@@ -30,8 +30,6 @@ import com.newbilius.simplegpsspeedometer.Utilities.IActivityProvider;
 import com.newbilius.simplegpsspeedometer.Utilities.SharedPreferencesStore;
 import com.newbilius.simplegpsspeedometer.databinding.ActivityDashboardBinding;
 
-//todo сплэш
-//todo IoC контейнер (?)
 //todo разбивка модели на ViewModel + Model ?
 
 //todo иконка
@@ -52,13 +50,16 @@ public class DashboardActivity extends AppCompatActivity implements IActivityPro
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
-
         binding = DataBindingUtil.setContentView(this, R.layout.activity_dashboard);
         model = new DashboardViewModel(this, new AppSettings(new SharedPreferencesStore(MainApplication.getAppContext())));
         binding.setModel(model);
 
+        initListeners();
+    }
+
+    private void initListeners() {
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         gpsListener = new GPSListener(new IGPSListenerCallback() {
             @Override

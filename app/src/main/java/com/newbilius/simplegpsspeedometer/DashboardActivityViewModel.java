@@ -19,6 +19,7 @@ public class DashboardActivityViewModel {
     public ObservableBoolean showSpeed = new ObservableBoolean();
     public ObservableField<String> infoText = new ObservableField<>();
     public ObservableBoolean showInfoText = new ObservableBoolean();
+    public ObservableBoolean showLoader = new ObservableBoolean();
 
     private float speed;
     private SpeedFormat speedFormat = SpeedFormat.kmh;
@@ -34,6 +35,7 @@ public class DashboardActivityViewModel {
         instantGPSSpeedCounter = new InstantGPSSpeedCounter();
         medianGPSSpeedCounter = new MedianGPSSpeedCounter(4);
         reloadData();
+        showLoader.set(true);
     }
 
     public void reloadData() {
@@ -53,8 +55,10 @@ public class DashboardActivityViewModel {
     }
 
     public void setSatelliteCount(int count) {
-        if (showInfoText.get())
+        if (showInfoText.get()) {
+            showLoader.set(true);
             infoText.set(String.format(context.getString(R.string.satelliteCount), count));
+        }
     }
 
     public void setGPSTurnedOff() {
@@ -65,6 +69,7 @@ public class DashboardActivityViewModel {
         if (gpsSpeedCounter != null)
             setSpeed(gpsSpeedCounter.getSpeed(location));
         showInfoText.set(false);
+        showLoader.set(false);
         showSpeed.set(true);
     }
 

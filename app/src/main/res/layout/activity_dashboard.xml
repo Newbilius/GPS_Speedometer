@@ -45,6 +45,14 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Спутники: 5 шт" />
 
+            <ProgressBar
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:visibility="@{model.showLoader}" />
+
         </LinearLayout>
     </ScrollView>
 </layout>

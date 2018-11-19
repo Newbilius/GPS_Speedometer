@@ -48,6 +48,10 @@ public class SettingsViewModel {
         NavigationHelpers.rateApplicationInGooglePlay(activityProvider.getActivity());
     }
 
+    public void goToIconAuthorSite() {
+        NavigationHelpers.goToUrl(activityProvider.getActivity(), "https://www.iconfinder.com/icons/172557/speedometer_icon");
+    }
+
     private void setSpeedCounterMode(SpeedCounterMode speedCounterMode) {
         settings.saveCounterMode(speedCounterMode);
         instantSpeedCounterSelected.set(speedCounterMode == SpeedCounterMode.Instant);

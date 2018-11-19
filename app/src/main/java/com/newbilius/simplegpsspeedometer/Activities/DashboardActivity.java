@@ -31,6 +31,7 @@ import com.newbilius.simplegpsspeedometer.Utilities.SharedPreferencesStore;
 import com.newbilius.simplegpsspeedometer.databinding.ActivityDashboardBinding;
 
 //todo разбивка модели на ViewModel + Model ?
+//todo настроить crashlytics, не запихивая в репозиторий файл с персональными настройками
 
 //todo иконка
 //todo скриншоты

@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="12dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -47,61 +47,58 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Спутники: 5 шт" />
 
-            <GridLayout
+            <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:columnCount="2"
-                android:paddingTop="30dp"
-                android:rowCount="1">
+                android:onCheckedChanged="@{(radioGroup,id) -> model.speedCounterChanged()}"
+                android:orientation="vertical"
+                android:paddingRight="30dp">
 
-                <RadioGroup
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingRight="30dp">
+                    android:text="Скорость"
+                    android:textSize="18sp" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Скорость"
-                        android:textSize="18sp" />
-
-                    <RadioButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Мгновенная" />
-
-                    <RadioButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Усреднённая" />
-                </RadioGroup>
-
-                <RadioGroup
-                    android:layout_width="wrap_content"
+                <RadioButton
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:onCheckedChanged="@{(radioGroup,id) -> model.onSpeedFormatChanged()}"
-                    android:orientation="vertical">
+                    android:checked="@={model.instantSpeedCounterSelected}"
+                    android:text="Мгновенная" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Единицы измерения"
-                        android:textSize="18sp" />
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="@={model.medianSpeedCounterSelected}"
+                    android:text="Усреднённая за последние секунды" />
+            </RadioGroup>
 
-                    <RadioButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:checked="@={model.speedInKmH}"
-                        android:text="КМ/Ч" />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onCheckedChanged="@{(radioGroup,id) -> model.onSpeedFormatChanged()}"
+                android:orientation="vertical"
+                android:paddingTop="10dp">
 
-                    <RadioButton
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:checked="@={model.speedInMlH}"
-                        android:text="Миль/ч" />
-                </RadioGroup>
-            </GridLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Единицы измерения"
+                    android:textSize="18sp" />
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="@={model.speedInKmH}"
+                    android:text="КМ/Ч" />
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="@={model.speedInMpH}"
+                    android:text="Миль/ч" />
+            </RadioGroup>
+
         </LinearLayout>
     </ScrollView>
 </layout>

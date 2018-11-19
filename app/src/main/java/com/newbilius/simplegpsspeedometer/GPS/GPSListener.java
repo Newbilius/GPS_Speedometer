@@ -9,30 +9,21 @@ import com.newbilius.simplegpsspeedometer.GPSSpeedCounters.IGPSSpeedCounter;
 public class GPSListener implements LocationListener {
 
     private final IGPSListenerCallback gpsListenerCallback;
-    private IGPSSpeedCounter gpsSpeedCounter;
-    private float lastSpeed = 0;
     private boolean lastProviderStatus;
 
     public GPSListener(IGPSListenerCallback gpsListenerCallback) {
         this.gpsListenerCallback = gpsListenerCallback;
     }
 
-    public void setCounter(IGPSSpeedCounter gpsSpeedCounter) {
-        this.gpsSpeedCounter = gpsSpeedCounter;
-        lastSpeed = 0;
-        gpsSpeedCounter.restart();
-    }
-
     @Override
     public void onLocationChanged(Location location) {
-        lastSpeed = gpsSpeedCounter.getSpeed(location);
         if (gpsListenerCallback != null)
-            gpsListenerCallback.onSpeedChange(lastSpeed);
+            gpsListenerCallback.onLocationChanged(location);
     }
 
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
-        //не нашёл применения для своих целей
+        //не нашёл применения для своих целей, инфа не всегда актуальна (?)
     }
 
     @Override

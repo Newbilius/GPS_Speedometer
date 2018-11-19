@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
+import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,22 +19,21 @@ import com.newbilius.simplegpsspeedometer.GPS.GPSListener;
 import com.newbilius.simplegpsspeedometer.GPS.GPSSatelliteCounter;
 import com.newbilius.simplegpsspeedometer.GPS.IGPSListenerCallback;
 import com.newbilius.simplegpsspeedometer.GPS.IGPSSatelliteCounterCallback;
-import com.newbilius.simplegpsspeedometer.GPSSpeedCounters.InstantGPSSpeedCounter;
-import com.newbilius.simplegpsspeedometer.GPSSpeedCounters.MedianGPSSpeedCounter;
+import com.newbilius.simplegpsspeedometer.Utilities.SharedPreferencesStore;
 import com.newbilius.simplegpsspeedometer.databinding.ActivityDashboardBinding;
 
-//todo сохранение настроек
-//todo подправить дизайн
 //todo экран "об авторе"
 //todo вынести настройки на отдельный экран/модальное окно (?)
-//todo сбалансировать, что запихну
+//todo сбалансировать, что куда запихнуть (что в какую модель, что в активити)
+//todo сплэш (?)
+//todo разделить модель и вьюмодель ?
+//todo IoC контейнер?
+
+//после подготовки всего остального
 //todo локализация на английском
 //todo иконка
 //todo скриншоты
 //todo readme
-//todo сплэш (?)
-//todo разделить модель и вьюмодель ?
-//todo кто должен отвечать за подстановку нужной считалки (instantGPSSpeedCounter / medianGPSSpeedCounter) ?
 
 public class DashboardActivity extends AppCompatActivity {
 
@@ -44,8 +44,6 @@ public class DashboardActivity extends AppCompatActivity {
     private DashboardActivityViewModel model;
     private ActivityDashboardBinding binding;
 
-    private InstantGPSSpeedCounter instantGPSSpeedCounter;
-    private MedianGPSSpeedCounter medianGPSSpeedCounter;
     private GPSSatelliteCounter gpsSatelliteCounter;
 
     @Override
@@ -54,14 +52,14 @@ public class DashboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_dashboard);
-        model = new DashboardActivityViewModel(this);
+        model = new DashboardActivityViewModel(this, new AppSettings(new SharedPreferencesStore(MainApplication.getAppContext())));
         binding.setModel(model);
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         gpsListener = new GPSListener(new IGPSListenerCallback() {
             @Override
-            public void onSpeedChange(float speed) {
-                model.setAndShowSpeed(speed);
+            public void onLocationChanged(Location location) {
+                model.setAndShowSpeed(location);
             }
 
             @Override
@@ -73,8 +71,6 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
 
-        instantGPSSpeedCounter = new InstantGPSSpeedCounter();
-        medianGPSSpeedCounter = new MedianGPSSpeedCounter(4);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
             gpsSatelliteCounter = new GPSSatelliteCounter(new IGPSSatelliteCounterCallback() {
                 @Override
@@ -82,7 +78,6 @@ public class DashboardActivity extends AppCompatActivity {
                     model.setSatelliteCount(count);
                 }
             });
-        gpsListener.setCounter(medianGPSSpeedCounter);
     }
 
     private void turnOnGPSMessage() {
@@ -108,7 +103,6 @@ public class DashboardActivity extends AppCompatActivity {
                     }
                 })
                 .show();
-
     }
 
     @Override
@@ -126,19 +120,6 @@ public class DashboardActivity extends AppCompatActivity {
         requestPermissions();
     }
 
-    private void requestPermissions() {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
-                && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            locationManager.requestLocationUpdates("gps", 1000, 0, gpsListener);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-                locationManager.registerGnssStatusCallback(gpsSatelliteCounter);
-
-        } else ActivityCompat.requestPermissions(this, new String[]{
-                Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-        }, requestGpsPermissionsCallback);
-    }
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         boolean success = true;
@@ -153,6 +134,19 @@ public class DashboardActivity extends AppCompatActivity {
             requestPermissions();
         else
             showAlertAboutPermissions();
+    }
+
+    private void requestPermissions() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            locationManager.requestLocationUpdates("gps", 1000, 0, gpsListener);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+                locationManager.registerGnssStatusCallback(gpsSatelliteCounter);
+
+        } else ActivityCompat.requestPermissions(this, new String[]{
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+        }, requestGpsPermissionsCallback);
     }
 
     private void showAlertAboutPermissions() {

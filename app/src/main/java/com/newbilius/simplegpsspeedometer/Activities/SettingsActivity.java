@@ -10,13 +10,13 @@ import android.support.v7.app.AppCompatActivity;
 import com.newbilius.simplegpsspeedometer.ApplicationState.AppSettings;
 import com.newbilius.simplegpsspeedometer.ApplicationState.MainApplication;
 import com.newbilius.simplegpsspeedometer.R;
-import com.newbilius.simplegpsspeedometer.SettingsActivityViewModel;
+import com.newbilius.simplegpsspeedometer.SettingsViewModel;
 import com.newbilius.simplegpsspeedometer.Utilities.SharedPreferencesStore;
 import com.newbilius.simplegpsspeedometer.databinding.ActivitySettingsBinding;
 
 public class SettingsActivity extends AppCompatActivity {
     private ActivitySettingsBinding binding;
-    private SettingsActivityViewModel model;
+    private SettingsViewModel model;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_settings);
-        model = new SettingsActivityViewModel(this,
+        model = new SettingsViewModel(this,
                 new AppSettings(new SharedPreferencesStore(MainApplication.getAppContext())));
         binding.setModel(model);
         setTitle(R.string.settingsScreenTitle);

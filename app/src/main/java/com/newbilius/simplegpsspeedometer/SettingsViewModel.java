@@ -8,7 +8,7 @@ import com.newbilius.simplegpsspeedometer.Utilities.NavigationHelpers;
 import com.newbilius.simplegpsspeedometer.Utilities.SpeedCounterMode;
 import com.newbilius.simplegpsspeedometer.Utilities.SpeedFormat;
 
-public class SettingsActivityViewModel {
+public class SettingsViewModel {
     private final Context context;
     private final AppSettings settings;
 
@@ -18,7 +18,7 @@ public class SettingsActivityViewModel {
     public ObservableBoolean instantSpeedCounterSelected = new ObservableBoolean();
     public ObservableBoolean medianSpeedCounterSelected = new ObservableBoolean();
 
-    public SettingsActivityViewModel(Context context, AppSettings settings) {
+    public SettingsViewModel(Context context, AppSettings settings) {
         this.context = context;
         this.settings = settings;
 

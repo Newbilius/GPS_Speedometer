@@ -12,7 +12,7 @@ import com.newbilius.simplegpsspeedometer.GPSSpeedCounters.MedianGPSSpeedCounter
 import com.newbilius.simplegpsspeedometer.Utilities.SpeedCounterMode;
 import com.newbilius.simplegpsspeedometer.Utilities.SpeedFormat;
 
-public class DashboardActivityViewModel {
+public class DashboardViewModel {
 
     private final Context context;
     private final AppSettings settings;
@@ -28,8 +28,8 @@ public class DashboardActivityViewModel {
     private InstantGPSSpeedCounter instantGPSSpeedCounter;
     private MedianGPSSpeedCounter medianGPSSpeedCounter;
 
-    public DashboardActivityViewModel(Context context,
-                                      AppSettings settings) {
+    public DashboardViewModel(Context context,
+                              AppSettings settings) {
         this.context = context;
         this.settings = settings;
         setAndShowInfoText(context.getString(R.string.satelliteSearch));

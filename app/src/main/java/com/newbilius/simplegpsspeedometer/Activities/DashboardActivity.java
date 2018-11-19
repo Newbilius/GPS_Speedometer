@@ -18,7 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.newbilius.simplegpsspeedometer.ApplicationState.AppSettings;
-import com.newbilius.simplegpsspeedometer.DashboardActivityViewModel;
+import com.newbilius.simplegpsspeedometer.DashboardViewModel;
 import com.newbilius.simplegpsspeedometer.GPS.GPSListener;
 import com.newbilius.simplegpsspeedometer.GPS.GPSSatelliteCounter;
 import com.newbilius.simplegpsspeedometer.GPS.IGPSListenerCallback;
@@ -32,6 +32,7 @@ import com.newbilius.simplegpsspeedometer.databinding.ActivityDashboardBinding;
 //todo сплэш (?)
 //todo разделить модель и вьюмодель ?
 //todo IoC контейнер (?)
+//todo реклама (хе-хе)
 
 //todo иконка
 //todo скриншоты
@@ -43,7 +44,7 @@ public class DashboardActivity extends AppCompatActivity {
 
     private static final int requestGpsPermissionsCallback = 4242;
     private GPSListener gpsListener;
-    private DashboardActivityViewModel model;
+    private DashboardViewModel model;
     private ActivityDashboardBinding binding;
 
     private GPSSatelliteCounter gpsSatelliteCounter;
@@ -54,7 +55,7 @@ public class DashboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_dashboard);
-        model = new DashboardActivityViewModel(this, new AppSettings(new SharedPreferencesStore(MainApplication.getAppContext())));
+        model = new DashboardViewModel(this, new AppSettings(new SharedPreferencesStore(MainApplication.getAppContext())));
         binding.setModel(model);
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);

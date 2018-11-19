@@ -7,7 +7,7 @@
 
         <variable
             name="model"
-            type="com.newbilius.simplegpsspeedometer.DashboardActivityViewModel" />
+            type="com.newbilius.simplegpsspeedometer.DashboardViewModel" />
     </data>
 
     <ScrollView

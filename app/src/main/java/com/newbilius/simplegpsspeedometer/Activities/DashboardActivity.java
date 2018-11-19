@@ -17,13 +17,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.newbilius.simplegpsspeedometer.AppSettings;
+import com.newbilius.simplegpsspeedometer.ApplicationState.AppSettings;
 import com.newbilius.simplegpsspeedometer.DashboardActivityViewModel;
 import com.newbilius.simplegpsspeedometer.GPS.GPSListener;
 import com.newbilius.simplegpsspeedometer.GPS.GPSSatelliteCounter;
 import com.newbilius.simplegpsspeedometer.GPS.IGPSListenerCallback;
 import com.newbilius.simplegpsspeedometer.GPS.IGPSSatelliteCounterCallback;
-import com.newbilius.simplegpsspeedometer.MainApplication;
+import com.newbilius.simplegpsspeedometer.ApplicationState.MainApplication;
 import com.newbilius.simplegpsspeedometer.R;
 import com.newbilius.simplegpsspeedometer.Utilities.SharedPreferencesStore;
 import com.newbilius.simplegpsspeedometer.databinding.ActivityDashboardBinding;

@@ -1,4 +1,4 @@
-package com.newbilius.simplegpsspeedometer;
+package com.newbilius.simplegpsspeedometer.ApplicationState;
 
 import com.newbilius.simplegpsspeedometer.Utilities.SharedPreferencesStore;
 import com.newbilius.simplegpsspeedometer.Utilities.SpeedCounterMode;
@@ -14,19 +14,19 @@ public class AppSettings {
         this.sharedPreferencesStore = sharedPreferencesStore;
     }
 
-    void saveSpeedFormat(SpeedFormat speedFormat) {
+    public void saveSpeedFormat(SpeedFormat speedFormat) {
         sharedPreferencesStore.setInt(SPEED_FORMAT_KEY, speedFormat.ordinal());
     }
 
-    SpeedFormat getSpeedFormat() {
+    public SpeedFormat getSpeedFormat() {
         return SpeedFormat.values()[sharedPreferencesStore.getInt(SPEED_FORMAT_KEY, SpeedFormat.kmh.ordinal())];
     }
 
-    void saveCounterMode(SpeedCounterMode speedFormat) {
+    public void saveCounterMode(SpeedCounterMode speedFormat) {
         sharedPreferencesStore.setInt(SPEED_COUNTER_MODE_KEY, speedFormat.ordinal());
     }
 
-    SpeedCounterMode getSpeedCounterMode() {
+    public SpeedCounterMode getSpeedCounterMode() {
         return SpeedCounterMode.values()[sharedPreferencesStore.getInt(SPEED_COUNTER_MODE_KEY, SpeedCounterMode.Median.ordinal())];
     }
 }

@@ -5,6 +5,7 @@ import android.databinding.ObservableBoolean;
 import android.databinding.ObservableField;
 import android.location.Location;
 
+import com.newbilius.simplegpsspeedometer.ApplicationState.AppSettings;
 import com.newbilius.simplegpsspeedometer.GPSSpeedCounters.IGPSSpeedCounter;
 import com.newbilius.simplegpsspeedometer.GPSSpeedCounters.InstantGPSSpeedCounter;
 import com.newbilius.simplegpsspeedometer.GPSSpeedCounters.MedianGPSSpeedCounter;

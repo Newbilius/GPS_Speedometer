@@ -1,4 +1,4 @@
-package com.newbilius.simplegpsspeedometer;
+package com.newbilius.simplegpsspeedometer.ApplicationState;
 
 import android.app.Application;
 import android.content.Context;

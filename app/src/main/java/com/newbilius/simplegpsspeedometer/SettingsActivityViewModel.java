@@ -3,6 +3,7 @@ package com.newbilius.simplegpsspeedometer;
 import android.content.Context;
 import android.databinding.ObservableBoolean;
 
+import com.newbilius.simplegpsspeedometer.ApplicationState.AppSettings;
 import com.newbilius.simplegpsspeedometer.Utilities.NavigationHelpers;
 import com.newbilius.simplegpsspeedometer.Utilities.SpeedCounterMode;
 import com.newbilius.simplegpsspeedometer.Utilities.SpeedFormat;

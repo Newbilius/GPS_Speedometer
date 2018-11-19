@@ -23,9 +23,9 @@
     <string name="writeFeedbackButtonTitle">Write feedback</string>
     <string name="settingsScreenTitle">Settings</string>
     <string name="goToIconAuthorSiteButtonTitle">Other author icons</string>
-    <string name="author">Author</string>
+    <string name="author">Author: </string>
     <string name="newbilius">Moiseev Dmitry aka Newbilius</string>
-    <string name="iconAuthor">Author of icon:</string>
+    <string name="iconAuthor">Author of icon: </string>
     <string name="iconAuthorName">Visual Pharm</string>
 
     <plurals name="speedFormat_mph_plurals">

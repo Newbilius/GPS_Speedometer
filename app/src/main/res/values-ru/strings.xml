@@ -18,20 +18,19 @@
     <string name="speedRadioButtonGroupTitle">Скорость</string>
     <string name="unitsRadioButtonGroupTitle">Единицы измерения</string>
     <string name="kmhRadioButtonTitle">Км/ч</string>
-    <string name="mphRadioButtonTitle">Миль/ч</string>
+    <string name="mphRadioButtonTitle">Мили/ч</string>
     <string name="otherAppsButtonTitle">Другие приложения автора</string>
     <string name="writeFeedbackButtonTitle">Написать отзыв</string>
     <string name="settingsScreenTitle">Настройки</string>
     <string name="goToIconAuthorSiteButtonTitle">Другие иконки автора</string>
-
     <plurals name="speedFormat_mph_plurals">
         <item quantity="one">%1$d миля/ч</item>
         <item quantity="few">%1$d мили/ч</item>
         <item quantity="many">%1$d миль/ч</item>
         <item quantity="other">%1$d миль/ч</item>
     </plurals>
-    <string name="author">Автор:</string>
+    <string name="author">Автор: </string>
     <string name="newbilius">Моисеев Дмитрий aka Newbilius</string>
-    <string name="iconAuthor">Автор иконки:</string>
+    <string name="iconAuthor">Автор иконки: </string>
     <string name="iconAuthorName">Visual Pharm</string>
 </resources>

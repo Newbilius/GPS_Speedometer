@@ -82,8 +82,8 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginTop="@dimen/infoBlockMarginTop"
+                android:layout_marginBottom="@dimen/infoBlockMarginBottom"
                 android:orientation="horizontal">
 
                 <TextView
@@ -95,7 +95,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="8dp"
+                    android:paddingLeft="@dimen/settingsBlockTitleLeftPadding"
                     android:text="@string/newbilius"
                     android:textSize="@dimen/textSize"
                     android:textStyle="bold" />
@@ -116,8 +116,8 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginTop="@dimen/infoBlockMarginTop"
+                android:layout_marginBottom="@dimen/infoBlockMarginBottom"
                 android:orientation="horizontal">
 
                 <TextView
@@ -129,7 +129,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="8dp"
+                    android:paddingLeft="@dimen/settingsBlockTitleLeftPadding"
                     android:text="@string/iconAuthorName"
                     android:textSize="@dimen/textSize"
                     android:textStyle="bold" />

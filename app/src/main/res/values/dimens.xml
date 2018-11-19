@@ -5,4 +5,7 @@
     <dimen name="infoTextSize">32sp</dimen>
     <dimen name="configGroupTitleSize">18sp</dimen>
     <dimen name="screenPadding">12dp</dimen>
+    <dimen name="infoBlockMarginTop">24dp</dimen>
+    <dimen name="infoBlockMarginBottom">8dp</dimen>
+    <dimen name="settingsBlockTitleLeftPadding">4dp</dimen>
 </resources>

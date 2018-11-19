@@ -20,12 +20,6 @@ public class DashboardActivityViewModel {
     public ObservableField<String> infoText = new ObservableField<>();
     public ObservableBoolean showInfoText = new ObservableBoolean();
 
-    public ObservableBoolean speedInKmH = new ObservableBoolean();
-    public ObservableBoolean speedInMpH = new ObservableBoolean();
-
-    public ObservableBoolean instantSpeedCounterSelected = new ObservableBoolean();
-    public ObservableBoolean medianSpeedCounterSelected = new ObservableBoolean();
-
     private float speed;
     private SpeedFormat speedFormat = SpeedFormat.kmh;
     private IGPSSpeedCounter gpsSpeedCounter;
@@ -37,21 +31,17 @@ public class DashboardActivityViewModel {
         this.context = context;
         this.settings = settings;
         setAndShowInfoText(context.getString(R.string.satelliteSearch));
-        speedInKmH.set(true);
-        instantSpeedCounterSelected.set(true);
         instantGPSSpeedCounter = new InstantGPSSpeedCounter();
         medianGPSSpeedCounter = new MedianGPSSpeedCounter(4);
-        setCounter(instantGPSSpeedCounter);
+        reloadData();
+    }
 
+    void reloadData() {
         setSpeedFormat(settings.getSpeedFormat());
         setSpeedCounterMode(settings.getSpeedCounterMode());
     }
 
     private void setSpeedCounterMode(SpeedCounterMode speedCounterMode) {
-        settings.saveCounterMode(speedCounterMode);
-        instantSpeedCounterSelected.set(speedCounterMode == SpeedCounterMode.Instant);
-        medianSpeedCounterSelected.set(speedCounterMode == SpeedCounterMode.Median);
-
         switch (speedCounterMode) {
             case Instant:
                 setCounter(instantGPSSpeedCounter);
@@ -78,20 +68,6 @@ public class DashboardActivityViewModel {
         showSpeed.set(true);
     }
 
-    public void onSpeedFormatChanged() {
-        if (speedInKmH.get())
-            setSpeedFormat(SpeedFormat.kmh);
-        if (speedInMpH.get())
-            setSpeedFormat(SpeedFormat.mph);
-    }
-
-    public void speedCounterChanged() {
-        if (instantSpeedCounterSelected.get())
-            setSpeedCounterMode(SpeedCounterMode.Instant);
-        if (medianSpeedCounterSelected.get())
-            setSpeedCounterMode(SpeedCounterMode.Median);
-    }
-
     private void setCounter(IGPSSpeedCounter gpsSpeedCounter) {
         this.gpsSpeedCounter = gpsSpeedCounter;
         gpsSpeedCounter.restart();
@@ -100,10 +76,6 @@ public class DashboardActivityViewModel {
     private void setSpeedFormat(SpeedFormat format) {
         SpeedFormat oldSpeedFormat = speedFormat;
         speedFormat = format;
-        settings.saveSpeedFormat(speedFormat);
-
-        speedInKmH.set(format == SpeedFormat.kmh);
-        speedInMpH.set(format == SpeedFormat.mph);
 
         if (oldSpeedFormat != speedFormat)
             setSpeed(speed);

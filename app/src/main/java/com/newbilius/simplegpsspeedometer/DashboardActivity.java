@@ -14,6 +14,8 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.newbilius.simplegpsspeedometer.GPS.GPSListener;
 import com.newbilius.simplegpsspeedometer.GPS.GPSSatelliteCounter;
@@ -22,12 +24,12 @@ import com.newbilius.simplegpsspeedometer.GPS.IGPSSatelliteCounterCallback;
 import com.newbilius.simplegpsspeedometer.Utilities.SharedPreferencesStore;
 import com.newbilius.simplegpsspeedometer.databinding.ActivityDashboardBinding;
 
-//todo экран "об авторе"
-//todo вынести настройки на отдельный экран/модальное окно (?)
 //todo сбалансировать, что куда запихнуть (что в какую модель, что в активити)
 //todo сплэш (?)
 //todo разделить модель и вьюмодель ?
-//todo IoC контейнер?
+//todo IoC контейнер (?)
+//todo ProgressBar
+//todo вытащить общие моменты вёрстки в константы ресурсов
 
 //после подготовки всего остального
 //todo локализация на английском
@@ -106,6 +108,12 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        model.reloadData();
+    }
+
+    @Override
     protected void onPause() {
         super.onPause();
         locationManager.removeUpdates(gpsListener);
@@ -147,6 +155,19 @@ public class DashboardActivity extends AppCompatActivity {
                 Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.ACCESS_COARSE_LOCATION
         }, requestGpsPermissionsCallback);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_settings)
+            SettingsActivity.startActivity(this);
+        return super.onOptionsItemSelected(item);
     }
 
     private void showAlertAboutPermissions() {

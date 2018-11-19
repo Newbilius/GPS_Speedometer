@@ -14,4 +14,14 @@
     <string name="gps_turnedOff">GPS выключен</string>
     <string name="speedFormat_kmh">%d км/ч</string>
     <string name="speedFormat_mph">%d миль/ч</string>
+    <string name="menuAboutButtonTitle">Настройки и информация о программе</string>
+    <string name="medianSpeedRadioButtonTitle">Усреднённая за последние секунды</string>
+    <string name="instantSpeedRadioButtonTitle">Мгновенная</string>
+    <string name="speedRadioButtonGroupTitle">Скорость</string>
+    <string name="unitsRadioButtonGroupTitle">Единицы измерения</string>
+    <string name="kmhRadioButtonTitle">КМ/Ч</string>
+    <string name="mphRadioButtonTitle">Миль/ч</string>
+    <string name="otherAppsButtonTitle">Другие приложения автора</string>
+    <string name="writeFeedbackButtonTitle">Написать отзыв"</string>
+    <string name="settingsScreenTitle">Настройки</string>
 </resources>

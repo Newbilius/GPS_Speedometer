@@ -47,6 +47,7 @@ public class DashboardActivity extends AppCompatActivity implements IActivityPro
     private ActivityDashboardBinding binding;
 
     private GPSSatelliteCounter gpsSatelliteCounter;
+    private AlertDialog needGPSTurnOnDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,8 +69,9 @@ public class DashboardActivity extends AppCompatActivity implements IActivityPro
             public void onProviderStatusChanged(boolean enabled) {
                 if (!enabled) {
                     model.setGPSTurnedOff();
-                    turnOnGPSMessage();
-                }
+                    turnOnGPSDialog();
+                } else
+                    dismissTurnOnGPSDialog();
             }
         });
 
@@ -82,8 +84,10 @@ public class DashboardActivity extends AppCompatActivity implements IActivityPro
             });
     }
 
-    private void turnOnGPSMessage() {
-        new AlertDialog.Builder(this)
+    private void turnOnGPSDialog() {
+        dismissTurnOnGPSDialog();
+
+        needGPSTurnOnDialog = new AlertDialog.Builder(this)
                 .setTitle(R.string.noGPS_title)
                 .setMessage(R.string.noGPS_text)
                 .setPositiveButton(R.string.noGPS_turnOn_button, new DialogInterface.OnClickListener() {
@@ -106,6 +110,11 @@ public class DashboardActivity extends AppCompatActivity implements IActivityPro
                     }
                 })
                 .show();
+    }
+
+    private void dismissTurnOnGPSDialog() {
+        if (needGPSTurnOnDialog != null && needGPSTurnOnDialog.isShowing())
+            needGPSTurnOnDialog.dismiss();
     }
 
     @Override

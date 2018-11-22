@@ -3,7 +3,7 @@
 Простенькая программа, измеряющая скорость по GPS. Что есть минимально интересного в коде:
 
 * эксперименты с Data Binding (неплохой, но местами неприятно глюковатый инструмент)
-* вьюшки + вьюмодели (без чистых моделей)
+* вьюшки + вьюмодели (ViewModel + View; обычных моделей нет, хе-хе)
 * возможность добавлять разные способы измерения скорости ([IGPSSpeedCounter](app/src/main/java/com/newbilius/simplegpsspeedometer/GPSSpeedCounters))
 * кольцевой буфер для одного из вариантов подсчёта скорости ([звучит круче](app/src/main/java/com/newbilius/simplegpsspeedometer/Utilities/RingBufferOfFloat.java), чем выглядит на практике)
 

@@ -12,9 +12,10 @@
 * генерация ломается, если ViewModel разместить не в корневом пакете
 * генерация иногда ломается сама по себе, чинится только перезеапуском и очисткой кэша IntelliJ IDEA
 
+## Ссылка на Google Play
+https://play.google.com/store/apps/details?id=com.newbilius.simplegpsspeedometer
+
+
 ## Скриншоты
 
 ![Скриншот измерения скорости](github_readme_pics/01.png) ![Скриншот настроек](github_readme_pics/02.png)
-
-## Ссылка на Google Play
-https://play.google.com/store/apps/details?id=com.newbilius.simplegpsspeedometer
